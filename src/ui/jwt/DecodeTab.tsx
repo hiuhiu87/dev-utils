@@ -117,7 +117,8 @@ const ClaimsTable = ({ json }: { json: Record<string, any> | string }) => {
     return Object.entries(obj).map(([key, value]) => ({
       key,
       claim: key,
-      value: typeof value === "object" ? JSON.stringify(value) : value,
+      value:
+        typeof value === "object" ? JSON.stringify(value) : value.toString(),
       explanation: EXPLAIN_MAPS[key] || "",
     }));
   }, [json]);
